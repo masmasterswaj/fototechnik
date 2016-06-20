@@ -1,0 +1,78 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appending An Array Of jQuery Objects To The DOM</title>
+</head>
+<body>
+ 
+    <h1>
+        Appending An Array Of jQuery Objects To The DOM
+    </h1>
+ 
+    <ul class="friends">
+        <!-- This will be populated dynamically. -->
+    </ul>
+ 
+ 
+    <script type="text/javascript" src="../javascripts/jquery1.7.js"></script>
+    <script type="text/javascript">
+ 
+ 
+        // JQUERY PLUGIN: I append each jQuery object (in an array of
+        // jQuery objects) to the currently selected collection.
+        jQuery.fn.appendEach = function( arrayOfWrappers ){
+ 
+            // Map the array of jQuery objects to an array of
+            // raw DOM nodes.
+            var rawArray = jQuery.map(
+                arrayOfWrappers,
+                function( value, index ){
+ 
+                    // Return the unwrapped version. This will return
+                    // the underlying DOM nodes contained within each
+                    // jQuery value.
+                    return( value.get() );
+ 
+                }
+            );
+ 
+            // Add the raw DOM array to the current collection.
+            this.append( rawArray );
+ 
+            // Return this reference to maintain method chaining.
+            return( this );
+ 
+        };
+ 
+ 
+        // -------------------------------------------------- //
+        // -------------------------------------------------- //
+ 
+ 
+        // I am a convenience method for creating a Friend node
+        // with the given name (returned as a jQuery object).
+        function createFriendNode( name ){
+ 
+            // Create the friend node.
+            return(
+                $( "<li>" + name + "</li>" )
+            );
+ 
+        }
+ 
+        // Create an array of friends.
+        var buffer = [];
+        buffer.push( createFriendNode( "Joanna" ) );
+        buffer.push( createFriendNode( "Lisa" ) );
+        buffer.push( createFriendNode( "Tricia" ) );
+        buffer.push( createFriendNode( "Kim" ) );
+ 
+        // Append the friends to the DOM.
+        $( "ul.friends" ).appendEach( buffer );
+ 
+ 
+    </script>
+ 
+</body>
+</html>

@@ -1,0 +1,184 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Kurs jQuery</title>
+	<script type="text/javascript" src="../javascripts/jquery1.7.js"></script>
+	<style>
+		#tekst {
+			width:400px;
+			height:20px;
+			background-color:#E0E0E0;
+			border:1px solid #CCC;
+			margin:20px auto;
+			border-radius:10px;
+			padding:20px;
+			overflow:hidden;
+		}
+		#tekst2 {
+			width:400px;
+			height:20px;
+			background-color:#E0E0E0;
+			border:1px solid #CCC;
+			margin:20px auto;
+			border-radius:10px;
+			padding:20px;
+			overflow:hidden;
+		}
+		#tekst3 {
+			width:400px;
+			height:20px;
+			background-color:#E0E0E0;
+			border:1px solid #CCC;
+			margin:20px auto;
+			border-radius:10px;
+			padding:20px;
+			overflow:hidden;
+			display:none;
+			}	
+			.kategoria-link {
+				text-decoration:none;
+				color:#484646;
+			}
+			.kategoria-el {
+				width:100%;
+				height:30px;
+				border-bottom:1px dotted #a9a9a9;
+				line-height:30px;
+				text-decoration:none;
+				background-color:#F5F5F5;
+				-webkit-transition: all 300ms linear;
+				-moz-transition: all 300ms linear;
+				-o-transition: all 300ms linear;
+				-ms-transition: all 300ms linear;
+				transition: all 300ms linear;	
+			}
+			.kategoria-el:hover {
+				width:100%;
+				height:50px;
+				border-bottom:1px dotted #a9a9a9;
+				line-height:50px;
+				text-decoration:none;
+				background-color:#F63;	
+				-webkit-transition: all 300ms linear;
+				-moz-transition: all 300ms linear;
+				-o-transition: all 300ms linear;
+				-ms-transition: all 300ms linear;
+				transition: all 300ms linear;
+			}
+			.kategoria-el img {
+				padding-right:6px;
+				padding-left:6px;
+			}
+			.tag1 {
+				font-size:12px;
+			}
+			.tag2 {
+				font-size:14px;
+			}
+			.tag3 {
+				font-size:16px;
+			}
+			.tag4 {
+				font-size:18px;
+			}
+			.tag5 {
+				font-size:20px;
+			}
+			.tag6 {
+				font-size:24px;
+			}
+	</style>
+</head>
+ 
+<body>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		var tab = new Array ('polityka','wybory','heheszki','muzyka','knp','korwin','polska','jkm','pytanie','krul','ciekawostki','nsfw','ladnapani','mecz','oswiadczenie','humor','','wydarzenia','konserwy','gif','kiciochpyta','humorobrazkowy','swiat','zainteresowania','gry','gorzkiezale','rowerowyrownik','rozrywka','','tibiazwykopem','mikroreklama','','jaruzelski','','neuropa','','pilkanozna','','gimbynieznajo','','nowywykop','europa','nauka','mirkoelektronika','cycki','historia','suchar','motoryzacja','rap','technologia','muzykaelektroniczna');
+		function generate() {
+			return (Math.floor(Math.random()*6)+1);
+		  }
+
+		var el = $.map(tab, function(val, i) {
+		var liczba = generate();	
+		  return '<span class="tag' +liczba+ '">#' + val + "</span>, ";
+		});
+		
+		
+		$(".element").html(el.join(""));
+		$("#link").click(function() {
+			$("#tekst").css("color", "#0e3fdd");
+			$("#tekst").css("background-color", "#c8d1ed");
+		});
+		$("#tekst").mouseover(function() {
+			$("#tekst").css("color", "black");
+			$("#tekst").css("background-color", "#E0E0E0");
+		});
+		$("#link5").click(function() {
+			$("#tekst3").slideUp("slow");
+		});
+		$("#link3").click(function() {
+			$("#tekst").animate({"width": "500px"}, "slow");
+			$("#tekst").animate({"height": "500px"}, "slow");
+		});
+		$(".kategoria-link").mouseover(function() {
+			//$(".kategoria-el",this).css("background-color", "#0e3fdd");
+			//$(".kategoria-el",this).animate({"background-color": "#0e3fdd", "height": "50px", "line-height": "50px"}, 300);
+		});
+		$(".kategoria-link").mouseout(function() {
+			//$(".kategoria-el",this).css("background-color", "#0e3fdd");
+			//$('.kategoria-el',this).animate({"background-color": "#0e3fdd", "height": "30px", "line-height": "30px"}, 300);
+		});
+	});
+	</script>
+	<a href="#" class="kategoria-link">
+    <div class="kategoria-el">
+        <img src="../images/dot.png" width="5" height="5">Prace / Nasze prace
+    </div>
+    </a>
+    <a href="#" class="kategoria-link">
+    <div class="kategoria-el">
+        <img src="../images/dot.png" width="5" height="5">Zdjęcia
+    </div>
+    </a>
+    <div class="element">
+    </div>
+	<div id="tekst">
+    <input type="button" id="link" value="Kliknij" />
+    <input type="button" id="link2" value="Zwin" />
+    <input type="button" id="link3" value="Powieksz" />
+    <input type="button" id="link4" value="Zmniejsz" />
+    <br />
+    <br />
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    
+    
+    </div>
+    <div id="tekst2">
+    <input type="button" id="link" value="Kliknij" />
+    <input type="button" id="link2" value="Zwin" />
+    <input type="button" id="link3" value="Powieksz" />
+    <input type="button" id="link4" value="Zmniejsz" />
+    <br />
+    <br />
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    
+    
+    </div>
+    <input type="button" id="link5" value="Kliknij" style="margin:0px auto;" />
+    <div id="tekst3">
+   
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut la
+    
+    
+    </div>
+</body>
+</html>

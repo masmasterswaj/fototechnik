@@ -1,0 +1,161 @@
+﻿<html><head>
+	<title>Kurs jQuery</title>
+	<script type="text/javascript" src="../javascripts/jquery1.7.js"></script>
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function() {
+		var tagiArray = new Array ('Tag1','Tag2','Tag3','Tag4','Tag5','Tag6','Tag7','Tag8');
+
+		$(".tagAdd1").live("click",function(){
+			//odczytanie wszystkich tagów z pola tekstowego
+            var tagi=$("#tagAdd1").val();
+			//nazwa kliknietego taga
+            var newTag=$(this).html();
+            console.log('tagi:' + tagiArray + '  NowyTag: ' + newTag);
+			//zmiana koloru kliknietego taga
+            $(this).css("color","#999");
+			//sprawdzenie czy dodawany tag nie jest pierwszym tagiem 
+            if(tagi==''){
+				//dodanie wybranego taga
+			    $('#tagAdd1').attr('value',newTag+',');
+            }else{
+				//ustawienie zmiennej sprawdzajacej czy tag juz nie zostal dodany
+                var valueTagDuplicate=false;
+				//zdefiniowanie pustego ciagu tagow
+                var valueTagList='';
+				//rozbicie tagow do tablicy 
+                var numbersArray=tagi.split(',');
+				//sprawdzenie czy nowy tag istnieje w tablicy jesli nie zwraca -1 jesli tak zwaraca ilosc wystapien
+			    var indexTag=$.inArray(newTag,numbersArray);
+                    if(indexTag>=0){
+						//usunięcie taga z tablicy 
+                        numbersArray.splice(indexTag,1);
+                        $(this).css("color","#F30");
+			            var valueTagDuplicate=true;
+                    }
+                $.each(numbersArray,function(index,value){
+                    if(value!=''&&$.inArray(value,tagiArray )>=0) 
+			            valueTagList = valueTagList + value  + ',';
+                });
+                if(!valueTagDuplicate)
+                       valueTagList=valueTagList+newTag+',';
+            }
+            $('#tagAdd1').attr('value',valueTagList);
+        });
+       
+		$("#butTagAdd1").live("click", function(event){
+			var newTag=$('#textTagAdd1').val();
+			var tagArray=newTag.split(',');
+			$.each(tagArray,function(index,value) {
+				if(value!='' && $.inArray(value,tagiArray ) == -1) 
+					{
+					//dodanie taga do tablicy
+					var data = { "z1": "test1","z2": "test2"};
+					data = $(this).serialize() + "&" + $.param(data);
+					console.log('dane jonson:' + data);
+					$.ajax({
+					  type: "POST",
+					  dataType: "json",
+					  async: false,
+					  url: "../admin/addtag.php", //Relative or absolute path to response.php file
+					  data: data,
+		
+					success: function(data) {
+							console.log('odpowiedz jonson:' + data);
+						},
+					error: function(xhr, status) {
+							alert('Przepraszamy, wystąpił problem!');
+						}
+					});
+					
+					tagiArray.push(value);
+					$("#divTagAdd1").append('<a href="#"><div class="tagAdd1">'+value+'</div></a>');
+					}
+			});
+           
+			console.log('doawanie:' + tagiArray);	
+
+		});
+
+	});
+	</script>
+	<style type="text/css">
+	body {
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:14px;
+		color:#484646;
+		margin:0px;
+		background-color:#f1efe8;
+	}
+	#okno	 {
+		display: block;
+		float: left;
+		background-color:#F60;
+		border: 1px solid black;
+		width: 100px;
+		height: 100px;
+		margin:10px;
+	}
+	.tagAdd1, .tagAdd2 {
+		font-size:10px;
+		color:#F30;
+		float:left;
+		padding:3px 7px 3px 7px;
+		border-right:1px dotted #999;
+	}
+	.tagAdd1:hover,.tagAdd2:hover {
+		color:#fff;
+		background:#666;
+	}
+	</style>
+</head>
+ 
+<body>
+   <div id="divTagAdd1">
+   <a href="#"><div class="tagAdd1">Tag1</div></a>
+   <a href="#"><div class="tagAdd1">Tag2</div></a>
+   <a href="#"><div class="tagAdd1">Tag3</div></a>
+   <a href="#"><div class="tagAdd1">Tag4</div></a>
+   <a href="#"><div class="tagAdd1">Tag5</div></a>
+   <a href="#"><div class="tagAdd1">Tag6</div></a>
+   <a href="#"><div class="tagAdd1">Tag7</div></a>
+   <a href="#"><div class="tagAdd1">Tag8</div></a>
+   </div>
+  
+    <br>
+    <br>
+
+    <input type="text" id="tagAdd1" value="" name="tagAdd1" size="90" />
+   
+   <div id="divTagAdd2">
+   <a href="#"><div class="tagAdd2">Tag1</div></a>
+   <a href="#"><div class="tagAdd2">Tag2</div></a>
+   <a href="#"><div class="tagAdd2">Tag3</div></a>
+   <a href="#"><div class="tagAdd2">Tag4</div></a>
+   <a href="#"><div class="tagAdd2">Tag5</div></a>
+   <a href="#"><div class="tagAdd2">Tag6</div></a>
+   <a href="#"><div class="tagAdd2">Tag7</div></a>
+   <a href="#"><div class="tagAdd2">Tag8</div></a>
+   </div>
+  
+    <br>
+    <br>
+
+    <input type="text" id="tagAdd2" value="" name="tagAdd2" size="90" />
+    
+    <div id="formTagAdd1">
+        
+        	<label for="textTagAdd1">Podaj nowy TAG</label>
+            <input type="text" size="30" name="textTagAdd1" id="textTagAdd1" value="" />
+            <br>
+			<input type="submit" value="Dodaj" name="butTagAdd1" id="butTagAdd1" />
+        
+    </div>
+    
+    <div id="formTagAdd2">
+    	
+    </div>
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿/* CSS Document */
+body {
+	margin:0px;
+}
+#dodaj {
+	position:relative;
+	height:20px;
+	width:20px;
+	border: 1px solid #063;
+	border-radius: 15px;
+	background-color:#F30;
+	z-index:3;
+	left:100px;
+	top:100px;
+}
+#dodaj:hover {
+	background-color:#006;
+	border: 1px solid #000;
+	z-index:2;
+}
+.adminButton {
+	width:100%;
+	height:35px;
+}
+.adminEdit div, .adminWrite div, .adminPic div, .adminDel div, .adminHome div, .adminTag div, .adminKat div {
+	display:none;
+	opacity: 0;
+	bottom:0px; 
+	left:0px;
+	width:0px;
+	height:0px;
+	padding:0px;
+}
+.adminEdit div b, .adminWrite div b, .adminPic div b, .adminDel div b, .adminHome div b, .adminTag div b, .adminKat div b {
+	color:#000;
+}
+.adminEdit:hover div, .adminWrite:hover div, .adminPic:hover div, .adminDel:hover div, .adminHome:hover div, .adminTag:hover div, .adminKat:hover div	{
+	position:relative;
+	display:block;
+	background-image:url('../images/tooltip/shadow2-reverse.png');
+	bottom:-30px; 
+	left:-235px;
+	width:210px;
+	height:115px;
+	#background:#FFCC66;
+	padding:60px 20px 20px 20px;
+	font-size:12px;
+	color:#fff;
+	#text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666;
+	#text-shadow: black 0.1em 0.1em 0.2em;
+	#opacity: 0.95;
+	-webkit-transition: opacity 300ms linear;
+	-moz-transition: opacity 300ms linear;
+	-o-transition: opacity 300ms linear;
+	-ms-transition: opacity 300ms linear;
+	transition: opacity 300ms linear;
+}
+
+.adminEdit, .adminWrite, .adminPic, .adminDel, .adminHome, .adminTag, .adminKat {
+	width:30px;
+	height:30px;
+	background-repeat:no-repeat;
+	float:right;
+	margin: 0px 10px 0px 0px;
+	cursor:pointer;
+}
+.adminEdit{
+	background-image:url(../images/editOut.png);
+}
+.adminWrite{
+	background-image:url(../images/writeOut.png);
+}
+.adminPic{
+	background-image:url(../images/picOut.png);
+}
+.adminEdit:hover  {
+	background-image:url(../images/editOver.png);
+}
+.adminWrite:hover  {
+	background-image:url(../images/writeOver.png);
+}
+.adminPic:hover  {
+	background-image:url(../images/picOver.png);
+}
+.adminDel{
+	background-image:url(../images/delOut.png);
+}
+.adminDel:hover  {
+	background-image:url(../images/delOver.png);
+}
+.adminHome{
+	background-image:url(../images/homeOut.png);
+}
+.adminHome:hover  {
+	background-image:url(../images/homeOver.png);
+}
+.adminKat{
+	background-image:url(../images/katOut.png);
+}
+.adminKat:hover  {
+	background-image:url(../images/katOver.png);
+}
+.adminTag{
+	background-image:url(../images/tagOut.png);
+}
+.adminTag:hover  {
+	background-image:url(../images/tagOver.png);
+}
+#adminEditOkno, #adminWriteOkno, #adminFileOkno,  #adminTagOkno,  #adminKatOkno, #adminDelOkno {
+	display:none;
+	border-radius: 10px;
+	#-moz-box-shadow:#333 0px 0px 15px;
+	#-webkit-box-shadow:#333 0px 0px 15px;
+	#box-shadow:#333 0px 0px 15px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:13px;
+	color:#000000;
+	text-align:justify;
+	line-height: 20px;
+}
+#adminEditZaw, #adminWriteZaw, #adminFileZaw, #adminTagZaw, #adminKatZaw, #adminDelZaw {
+	height:90%;
+	padding:0px;
+	#border: solid #c1c1ff 1px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}
+.fancybox-custom {
+	#box-shadow: 0 0 50px #222;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	
+}
+#iframeFilemenager{
+	width:875px;
+	height:575px;
+	margin:10px 10px 10px 10px;
+	border:1px solid #C7C7C7;
+}
+.buttonSub {
+	width:150px;
+	height:35px;
+	line-height:35px;
+	border:#d3d3d3;
+	border-radius:5px;
+	border:1px solid #aaaaaa;
+	background-color:#dadada;
+	background-image:-webkit-linear-gradient(top,#f1f1f1,#dadada);
+	background-image:-o-linear-gradient(top,#f1f1f1,#dadada);
+	background-image:-moz-linear-gradient(top,#f1f1f1,#dadada);
+	background-image:linear-gradient(top,#f1f1f1,#dadada);
+	margin:5px;
+	color:#555555;
+}
+.buttonSub:hover {
+	background-color:#f1f1f1;
+	background-image:-webkit-linear-gradient(top,#dadada,#f1f1f1);
+	background-image:-o-linear-gradient(top,#dadada,#f1f1f1);
+	background-image:-moz-linear-gradient(top,#dadada,#f1f1f1);
+	background-image:linear-gradient(top,#dadada,#f1f1f1);
+	color:#000000;
+}
+#adminEditZaw .buttonSubPosition, #adminWriteZaw .buttonSubPosition, #adminFileZaw .buttonSubPosition, 
+#adminTagZaw .buttonSubPosition, #adminKatZaw .buttonSubPosition, #adminDelZaw .buttonSubPosition {
+ 	position:absolute;
+    bottom:0;
+    right:0;
+}
+.formPoleText {
+	margin:2px 10px 20px 20px;
+	padding:3px;
+	line-height:20px;
+}
+span, .error {
+	padding-bottom: 2px;
+	font-weight: bold;
+	color:#F30;
+}
+legend {
+	font-size:12px;
+	margin:10px 0px 10px 0px;
+}
+.tagAktW, .tagAktE01, .tagAktE02, .tagAktE03, .tagAktE04, .tagAktE05, .tagAktE06, .tagAktE07, .tagAktE08, .tagAktE09, .tagAktE10, 
+.katAktW, .katAktE01, .katAktE02, .katAktE03, .katAktE04, .katAktE05, .katAktE06, .katAktE07, .katAktE08, .katAktE09, .katAktE10{
+	font-size:10px;
+	color:#F30;
+	float:left;
+	padding:0px 7px 0px 7px;
+	margin:5px 0px 5px 0px;
+	border-right:1px dotted #999;
+}
+.tagAktW:hover, .tagAktE01:hover, .tagAktE02:hover, .tagAktE03:hover, .tagAktE04:hover, .tagAktE05:hover, 
+.tagAktE06:hover, .tagAktE07:hover, .tagAktE08:hover, .tagAktE09:hover, .tagAktE10:hover, 
+.katAktW:hover, .katAktE01:hover, .katAktE02:hover, .katAktE03:hover, .katAktE04:hover, .katAktE05:hover, 
+.katAktE06:hover, .katAktE07:hover, .katAktE08:hover, .katAktE09:hover, .katAktE10:hover {
+	color:#fff;
+	background:#666;
+}
+#okno {
+	display: block;
+	float: left;
+	background-color:#F60;
+	border: 1px solid black;
+	width: 100px;
+	height: 100px;
+	margin:10px;
+}
+.tagAdd1, .tagAdd2, .tagAdd3, .tagAdd4, .tagAdd5, .tagAdd6, .tagAdd7, .tagAdd8, .tagAdd9, .tagAdd10,
+.katAdd1, .katAdd2, .katAdd3, .katAdd4, .katAdd5, .katAdd6, .katAdd7, .katAdd8, .katAdd9, .katAdd10, .tagWrite, .tagWrite {
+	font-size:10px;
+	color:#F30;
+	float:left;
+	padding:3px 7px 3px 7px;
+	border-right:1px dotted #999;
+}
+.tagAdd1:hover,.tagAdd2:hover, .tagAdd3:hover,.tagAdd4:hover, .tagAdd5:hover,.tagAdd6:hover, .tagAdd7:hover,.tagAdd8:hover, .tagAdd9:hover,.tagAdd10:hover,
+.katAdd1:hover,.katAdd2:hover, .katAdd3:hover,.katAdd4:hover, .katAdd5:hover,.katAdd6:hover, .katAdd7:hover,.katAdd8:hover, .katAdd9:hover,.katAdd10:hover, 
+.tagWrite:hover, .katWrite:hover {
+	color:#fff;
+	background:#666;
+}
+label {
+	font-size:10px;
+}

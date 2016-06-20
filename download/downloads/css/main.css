@@ -1,0 +1,12 @@
+﻿/* CSS Document */
+
+#my-dropzone {
+	width:1000px;
+	height:auto;
+	margin: 0px auto;
+	font-family:Verdana, Geneva, sans-serif;
+	background-color:#DDD;
+	border-radius:10px;
+}
+
+

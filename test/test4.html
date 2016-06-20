@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+	<title>Kurs jQuery #5 example 2</title>
+	<script type="text/javascript" src="../javascripts/jquery1.7.js"></script>
+	<script type="text/javascript" src="../javascripts/validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="../javascripts/validation/demo/captcha/captcha.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#formularz").validate({
+			messages: {
+				name: {
+					required: 'Pole wymagane',
+					minlength: 'Wpisz conajmniej {0} znaki',
+				},
+				email: {
+					required: 'Pole wymagane',
+					email: 'Wpisz poprawny adres email',
+				},
+				url: {
+					url: 'Wpisz poprawny adres URL',
+				},
+				comment: {
+					required: 'Pole wymagane',
+				},
+			},
+		//Sprawdzanie ukrytych pol formularza
+			ignore: '',
+			errorClass: "invalid",
+			//errorElement: "em",
+			//errorLabelContainer: "#messageValid",
+			rules: {"hidden_field": {required:true}}
+		});
+	});
+	</script>
+ 
+	<style type="text/css">
+		em, .error, invalid {
+			color: red;
+		}
+	</style>
+</head>
+ 
+<body>
+<form id="formularz" method="post" action="">
+	<fieldset>
+			Prosty przyklad walidacji formularza</legend>
+		<p>
+			<label for="cname">Imie</label>
+			<input id="cname" name="name" size="25" class="required" minlength="2" maxlength="5" /><br>
+			
+		</p>
+		<p>
+			<label for="cemail">E-Mail</label><em>*</em>
+			<input id="cemail" name="email" size="25"  class="required email" />
+		</p>
+		<p>
+			<label for="curl">URL</label>
+			<input id="curl" name="url" size="25"  class="url" value="" />
+		</p>
+		<p>
+			<label for="ccomment">Wiadomosc</label><em>*</em>
+			<textarea id="ccomment" name="comment" cols="22"  class="required"></textarea>
+		</p>
+		<p>
+			<input class="submit" type="submit" value="Wyslij !" />
+		</p>
+        <div id="messageValid">
+        </div>
+	</fieldset>
+</form>
+ 
+</body>
+</html>

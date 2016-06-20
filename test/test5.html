@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+	<title>Kurs jQuery #2 example 8</title>
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		$("a.menu").click(function() {
+			var rel = $(this).attr("rel");
+			$('.tresc').slideUp('slow');
+			$("div#"+rel).slideDown('slow');
+		});
+	});
+	</script>
+	<style type="text/css">
+	.tresc {
+		display: none;
+		width: 400px;
+		text-align: justify;
+	}
+	</style>
+</head>
+ 
+<body>
+	<a href="#" class="menu" rel="home">Home</a> | <a href="#" class="menu" rel="o-nas">O nas</a> | <a href="#" class="menu" rel="kontakt">Kontakt</a><br /><br />
+ 
+	<div class="tresc" id="home">
+		<h2>Home</h2>
+		<p>
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et
+		</p>
+	</div>
+ 
+	<div class="tresc" id="o-nas">
+		<h2>O nas</h2>
+		<p>
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At
+		</p>
+	</div>
+ 
+	<div class="tresc" id="kontakt">
+		<h2>Kontakt</h2>
+		<p>
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvolupt
+		</p>
+	</div>
+</body>
+</html>
